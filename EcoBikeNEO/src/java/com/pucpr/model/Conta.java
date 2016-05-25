@@ -1,7 +1,7 @@
 package com.pucpr.model;
 
 public class Conta {
-	private int id;
+	private Integer id;
 	private Integer agencia;
 	private Integer conta;
 	

@@ -1,6 +1,16 @@
 package com.pucpr.model;
 
+import javax.persistence.*;
+import org.hibernate.annotations.Table;
+
+
+
+@Entity
+@Table(appliesTo = "BIKE")
 public class Bike {
+        @Id @GeneratedValue
+        @Column(name = "id")
+        private Integer id;
 	private Integer capacidade;
 	private String numeroSerie;
 	

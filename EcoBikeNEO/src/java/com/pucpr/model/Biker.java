@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Biker {
+        private Integer id;
 	private String nome;
 	private Double cpf;
 	private Double rg;

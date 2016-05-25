@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa {
-	private int id;
+	private Integer id;
 	private Integer cnpj;
 	private String nome;
 	private String telefone;

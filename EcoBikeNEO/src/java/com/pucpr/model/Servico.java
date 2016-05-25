@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Servico {
-	private int id;
+       	private Integer id;
 	private Empresa contratante;
 	private List<Carga> cargas;
 	private Double valorExtra;

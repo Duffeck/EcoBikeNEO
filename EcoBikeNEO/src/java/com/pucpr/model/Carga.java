@@ -1,7 +1,7 @@
 package com.pucpr.model;
 
 public class Carga {
-	private int id;
+	private Integer id;
 	private Double peso;
 	private Double dimensao;
 	private String tipo;

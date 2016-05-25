@@ -1,7 +1,7 @@
 package com.pucpr.model;
 
 public class Endereco {
-	private int id;
+	private Integer id;
 	private String rua;
 	private Integer numero;
 	private String complemento;
