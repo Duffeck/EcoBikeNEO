@@ -9,7 +9,6 @@ public class Empresa {
 	private String nome;
 	private String telefone;
 	private String email;
-	private Conta conta;
 	private Endereco endereco;
 	private List<Servico> servicos;
 	
@@ -47,12 +46,7 @@ public class Empresa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Conta getConta() {
-		return conta;
-	}
-	public void setConta(Conta conta) {
-		this.conta = conta;
-	}
+        
 	public Endereco getEndereco() {
 		return endereco;
 	}
