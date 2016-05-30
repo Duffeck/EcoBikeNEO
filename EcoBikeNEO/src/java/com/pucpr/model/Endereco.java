@@ -1,7 +1,15 @@
 package com.pucpr.model;
 
-public class Endereco {
+import java.io.Serializable;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ENDERECOS")
+public class Endereco implements Serializable{
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
 	private String rua;
 	private Integer numero;
 	private String complemento;

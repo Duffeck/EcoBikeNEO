@@ -1,16 +1,36 @@
 package com.pucpr.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
 
-public class Servico {
-       	private Integer id;
+@Entity
+@Table(name = "SERVICOS")
+public class Servico implements Serializable{
+	@Id
+	@GeneratedValue
+    private Integer id;
+	@ManyToOne
+	@JoinColumn(name = "empresa_id")
 	private Empresa contratante;
+	@ManyToOne
+	@JoinColumn(name = "biker_id")
+	private Bike biker;
+	
+	@OneToMany(mappedBy="servico")
 	private List<Carga> cargas;
+	
 	private Double valorExtra;
 	private Double valorTotal;
 	private String obs;
+	
+	@OneToOne
+	@JoinColumn(name = "origem")
 	private Endereco origem;
+	
+	@OneToOne
+	@JoinColumn(name = "destino")
 	private Endereco destino;
 	
 	
@@ -31,6 +51,21 @@ public class Servico {
 
 	public Empresa getContratante() {
 		return contratante;
+	}
+
+
+	public Bike getBiker() {
+		return biker;
+	}
+
+
+	public void setBiker(Bike biker) {
+		this.biker = biker;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 

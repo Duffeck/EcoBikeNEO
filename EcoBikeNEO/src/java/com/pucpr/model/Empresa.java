@@ -1,21 +1,32 @@
 package com.pucpr.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-public class Empresa {
+import javax.persistence.*;
+@Entity
+@Table(name = "EMPRESAS")
+public class Empresa implements Serializable{
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
 	private Integer cnpj;
 	private String nome;
 	private String telefone;
 	private String email;
+        @OneToOne
 	private Endereco endereco;
+	
+	@OneToMany(mappedBy="contratante")
 	private List<Servico> servicos;
 	
 	
 	public Empresa() {
 		servicos = new ArrayList<>();
 	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -54,6 +65,11 @@ public class Empresa {
 		this.endereco = endereco;
 	}
 	public List<Servico> getServicos() {
+		for(Servico s : servicos)
+		{
+			s.setContratante(this);;		
+
+		}
 		return servicos;
 	}
 	public void setServicos(List<Servico> servicos) {

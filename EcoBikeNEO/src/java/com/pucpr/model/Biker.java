@@ -1,15 +1,27 @@
 package com.pucpr.model;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
-public class Biker {
+@Entity
+@Table(name = "BIKERS")
+public class Biker implements Serializable{
+	@Id
+	@GeneratedValue
         private Integer id;
 	private String nome;
-	private Double cpf;
-	private Double rg;
+	private Integer cpf;
+	private Integer rg;
+	
+	@OneToMany(mappedBy="biker")
 	private List<Servico> servicos;
+	
+	@OneToMany(mappedBy="biker")
 	private List<Bike> bikes;
+	
+	@OneToMany(mappedBy="biker")
 	private List<Conta> contas;
 	
 	public Biker(){
@@ -25,16 +37,16 @@ public class Biker {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Double getCpf() {
+	public Integer getCpf() {
 		return cpf;
 	}
-	public void setCpf(Double cpf) {
+	public void setCpf(Integer cpf) {
 		this.cpf = cpf;
 	}
-	public Double getRg() {
+	public Integer getRg() {
 		return rg;
 	}
-	public void setRg(Double rg) {
+	public void setRg(Integer rg) {
 		this.rg = rg;
 	}
 	public List<Servico> getServicos() {

@@ -1,18 +1,21 @@
 package com.pucpr.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
-import org.hibernate.annotations.Table;
 
 
 
 @Entity
-@Table(appliesTo = "BIKE")
-public class Bike {
-        @Id @GeneratedValue
-        @Column(name = "id")
-        private Integer id;
+@Table(name = "BIKE")
+public class Bike implements Serializable{
+    @Id
+    @GeneratedValue
+    private Integer id;
 	private Integer capacidade;
 	private String numeroSerie;
+	@ManyToOne
+	@JoinColumn(name = "biker_id")
+	private Biker biker;
 	
 	
 	public Integer getCapacidade() {
@@ -26,6 +29,18 @@ public class Bike {
 	}
 	public void setNumeroSerie(String numeroSerie) {
 		this.numeroSerie = numeroSerie;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Biker getBiker() {
+		return biker;
+	}
+	public void setBiker(Biker biker) {
+		this.biker = biker;
 	}
 	
 	
